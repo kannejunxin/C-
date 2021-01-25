@@ -90,7 +90,6 @@
 //			break;
 //		}
 //	}
-//
 //}
 //int main()
 //{
@@ -116,6 +115,17 @@
 //	return 0;
 //}
 
+//#include<stdio.h>
+//#include<stdlib.h>
+//#include<time.h>
+//void main(void)
+//{
+//	int i;
+//	srand((unsigned int)time(NULL));
+//		for (i = 0; i < 10; i++)
+//			printf("%d ", rand());
+//	printf("\n\n\n");
+//}
 
 
 
