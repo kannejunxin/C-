@@ -1,3 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(1.22 函数（1）.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
   text.c
-  1.22.vcxproj -> D:\Visual Studio 程序\c代码练习\C-\比特寒假班课堂代码\1.22 函数（2）\1.22\Debug\1.22 函数（2）.exe
+d:\visual studio 程序\c代码练习\c-\比特寒假班课堂代码\1.22 函数（2）\1.22\1.22\text.c(211): warning C4305: “函数”: 从“int”到“char”截断
+d:\visual studio 程序\c代码练习\c-\比特寒假班课堂代码\1.22 函数（2）\1.22\1.22\text.c(211): error C2015: 常量中的字符太多

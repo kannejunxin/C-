@@ -1,5 +1,60 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+//数组的创建
+//int main()
+//{
+//	int arr[10] = {0};
+//	char ch[5 + 5] = { 0 };//[]内要常量 ，不可以变量，但是c99标准下的编译器可以
+//	return 0;
+//}
+//一维数组初始化
+//int main()
+//{
+//	int arr1[10] = { 1 };//不完全初始化
+//	int arr2[10] = { 1,2,3,4,5,6,7,8,9,10 };//完全初始化
+//	int arr3[10] = { 0 };
+//	int arr4[] = { 0 };//一个元素
+//	char ch[10] = { 0 };
+//	char ch2[10] = { 'a','b','c' };
+//	char ch3[] = "abc";
+//	return 0;
+//}
+//int main()
+//{
+//	char arr1[] = "abc";//4个元素 ,'\0'
+//	char arr2[] = { 'a','b','c' };//3个元素
+//	return 0;
+//}
+
+//一维数组的使用(访问)
+//int main()
+//{
+//	char arr[] = { 'b','i','t' };
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%c ", arr[i]);
+//	}
+//	return 0;
+//}
+
+//一维数组在内存中的存储
+
+int main()
+{
+	int arr[10] = { 0 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int i = 0;
+	int*p = arr;//数组名-数组首元素的地址
+	for (i = 0; i < sz; i++)
+	{
+		printf("&arr[%d]=%p <============> %p\n",i ,&arr[i],p+i);
+	}
+	//p+i --- 是数组arr中下标为i的元素的地址，所以可以使用指针P访问数组
+	return 0;
+	//数组在内存中连续存放，随着数组下标增长，地址由低到高变化
+}
 
 //int main()
 //{
