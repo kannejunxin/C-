@@ -186,32 +186,32 @@
 //}
 
 //汉诺塔问题
-int count = 0;
-void move(char x, char y)
-{
-	printf("%c =====>  %c\n", x, y);
-	count++;
-}
-int hanoi(int n, char A, char B, char C)// n表示圆盘个数，A,B,C为三个杆子，表示从A经由B移动到C
-{
-	if (n == 1)
-		move(A, C);
-	else
-	{
-		hanoi(n - 1, A, C, B);
-		move(A, C);
-		hanoi(n - 1, B, A, C);
-	}
-}
-int main()
-{
-	int n;
-	printf("请输入圆盘数：\n");
-	scanf("%d", &n);
-	count=hanoi(n,'A','B','C');
-	printf("总共移动%d次",count);
-	return 0;
-}
+//int count = 0;
+//void move(char x, char y)
+//{
+//	printf("%c =====>  %c\n", x, y);
+//	count++;
+//}
+//int hanoi(int n, char A, char B, char C)// n表示圆盘个数，A,B,C为三个杆子，表示从A经由B移动到C
+//{
+//	if (n == 1)
+//		move(A, C);
+//	else
+//	{
+//		hanoi(n - 1, A, C, B);
+//		move(A, C);
+//		hanoi(n - 1, B, A, C);
+//	}
+//}
+//int main()
+//{
+//	int n;
+//	printf("请输入圆盘数：\n");
+//	scanf("%d", &n);
+//	count=hanoi(n,'A','B','C');
+//	printf("总共移动%d次",count);
+//	return 0;
+//}
 
 
 
