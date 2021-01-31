@@ -23,7 +23,8 @@ void DisplayBoard(char board[ROW][COL], int row, int col)
 			if (j < col - 1)
 				printf("|");
 		}
-		putchar('\n');
+		printf("\n");
+		//´òÓ¡·Ö¸îÐÐ
 		if (i < row - 1)
 		{
 			for (j = 0; j < col; j++)
@@ -32,8 +33,8 @@ void DisplayBoard(char board[ROW][COL], int row, int col)
 				if (j < col - 1)
 					printf("|");
 			}
+		printf("\n");
 		}
-		putchar('\n');
 	}
 }
 void PlayerMove(char board[ROW][COL], int row, int col)

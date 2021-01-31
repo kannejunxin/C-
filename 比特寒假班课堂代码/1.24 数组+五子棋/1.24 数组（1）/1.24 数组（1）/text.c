@@ -41,20 +41,20 @@
 
 //一维数组在内存中的存储
 
-int main()
-{
-	int arr[10] = { 0 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	int i = 0;
-	int*p = arr;//数组名-数组首元素的地址
-	for (i = 0; i < sz; i++)
-	{
-		printf("&arr[%d]=%p <============> %p\n",i ,&arr[i],p+i);
-	}
-	//p+i --- 是数组arr中下标为i的元素的地址，所以可以使用指针P访问数组
-	return 0;
-	//数组在内存中连续存放，随着数组下标增长，地址由低到高变化
-}
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	int*p = arr;//数组名-数组首元素的地址
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("&arr[%d]=%p <============> %p\n",i ,&arr[i],p+i);
+//	}
+//	//p+i --- 是数组arr中下标为i的元素的地址，所以可以使用指针P访问数组
+//	return 0;
+//	//数组在内存中连续存放，随着数组下标增长，地址由低到高变化
+//}
 
 //int main()
 //{
@@ -80,7 +80,7 @@ int main()
 //}
 
 
-//二维数组的地址
+//二维数组的地址,连续排放
 //int main()
 //{
 //	int arr[3][4] = { 0 };
@@ -96,6 +96,18 @@ int main()
 //	return 0;
 //}
 
+//指针访问二维数组
+//int main()
+//{ 
+//	int arr[3][4] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
+//	int *p = &arr[0][0];
+//	int  i = 0;
+//	for (i = 0; i < 12; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//	return 0;
+//}
 
 //冒泡排序排序数组
 //void bubble_sort(int arr[],int sz)//sz必须在主函数内算出，sz是元素个数
@@ -164,7 +176,7 @@ int main()
 //	
 //	//但是有两个例外:
 //	//一
-//	printf("%d\n", sizeof(arr));//此时表示整个数组 4*10=40
+//	printf("%d\n", sizeof(arr));//此时数组名表示整个数组 4*10=40
 //	//二
 //	//&arr,此时arr也表示整个数组
 //	
@@ -272,3 +284,5 @@ int main()
 //	}
 //	return 0;
 //}
+//
+

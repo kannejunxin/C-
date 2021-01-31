@@ -125,7 +125,7 @@
   <ItemGroup>
     <ClCompile Include="game%28三子棋%29.c" />
     <ClCompile Include="text.c" />
-    <ClCompile Include="（初阶）三子棋.c" />
+    <ClCompile Include="%28初阶%29三子棋.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="(初级)三子棋.h" />
