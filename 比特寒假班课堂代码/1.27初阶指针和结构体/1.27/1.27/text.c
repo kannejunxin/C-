@@ -178,20 +178,132 @@
 //}
 
 //数组和指针
-int main()
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,0 }, i;
+//	int *p = arr;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("&arr[%d]= %p <====> p+%d=%p \n", i, &arr[i], i, p + i);
+//	}
+//	return 0;
+//}
+
+//二级指针
+//int main()
+//{
+//	int a = 10;
+//	int*p = &a;
+//	int** pp=&p;
+//	**pp = 20;
+//	printf("%d\n", a);
+//	return 0;
+//}
+
+//指针数组
+//以指针为元素的数组
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	char ch[5] = { 'a','b' };
+//	int a = 10;
+//	int b = 20;
+//	int c = 30;
+//	int* arr[3]={&a, &b, &c};//每个元素类型为int*
+//}
+
+//int main()
+//{
+//	char*p = "ABCDEF";//把字符串首字符地址存于p
+//	printf("%s\n", p);
+//	char * arr[] = { "abcef","helo","bit" };
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		printf("%s\n", arr[i]);
+//	}
+//	return 0;
+//}
+
+//结构体
+//描述学生
+//struct stu
+//{
+//	//成员变量
+//	char name[20];
+//	int age;
+//	char tale[12];
+//	char sex[5];
+//};
+//
+//struct stu
+//{
+//	//成员变量
+//	char name[20];
+//	int age;
+//	char tale[12];
+//	char sex[5];
+//}s1,s2;
+////这里创建的s1,s2变量是全局的
+//int main()
+//{
+//	struct stu s;
+//	//这里创建的是局部
+//	struct stu s1;
+//	struct stu s2;
+//	
+//	return 0;
+//}
+
+//创建结构体描述坐标
+//struct point
+//{
+//	int x;
+//	int y;
+//
+//};
+//struct S
+//{
+//	char arr[10];
+//	struct point p;
+//	double d;
+//	int *ptr;
+//};
+//int main()
+//{
+//	struct point p = { 1,2 };
+//	printf("%d %d\n", p.x, p.y);
+//	int a = 2021;
+//	struct S s = { "abcef",{2,3},3.14,&a };
+//	printf("%s %d %d %lf\n", s.arr, s.p.x, s.p.y, s.d);
+//	return 0;
+//}
+
+//结构体传参
+struct S
 {
-	int arr[] = { 1,2,3,4,5,6,7,8,9,0 }, i;
-	int *p = arr;
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	for (i = 0; i < sz; i++)
-	{
-		printf("&arr[%d]= %p <====> p+%d=%p \n", i, &arr[i], i, p + i);
-	}
-	return 0;
+	char arr[1000];
+	int num;
+	double d;
+};
+void print1(struct S ss)//传值
+{
+	printf("%s %d %lf", ss.arr, ss.num, ss.d);
 }
 
-
-
+//print2相对来说比较好，因为空间print1临时开辟的空间是结构体的大小，若结构体很大，那么会造成空间浪费
+void print1(struct S* ps)//传址
+{
+	printf("%s %d %lf", ps->arr, ps->num, ps->d);
+}
+int main()
+{
+	struct S s = { "hello bit",100,3.14 };
+	print1(s);//用print函数打印结构体数据
+	print2(&s);
+	return 0;
+}
 //练习：判断结果
 //#include <stdio.h>
 //int main()
