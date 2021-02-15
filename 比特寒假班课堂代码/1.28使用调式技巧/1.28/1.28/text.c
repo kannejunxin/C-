@@ -203,15 +203,25 @@
 //	//但是指针指向的内容可以通过指针来改变
 //}
 
-
-
-
-
-
-
-
-
+//模拟实现strlen函数  计数器 递归 指针-指针
+//int my_strlen(const char* str)
+//{
+//	assert(str != NULL);
+//	const char*start = str;
+//	while (*start)
+//		start++;
+//	return start - str;
+//}
 //int main()
+//{
+//	char arr[] = "abcdef";
+//	int len = my_strlen(arr);
+//	printf("len = %d\n", len);
+//	return 0;
+//}
+
+
+//int main()//这也是strlen返回值为unsiged int 不好的地方
 //{
 //	if (strlen("abc") - strlen("abcdef") > 0)
 //		printf("大于\n");
@@ -219,6 +229,8 @@
 //		printf("小于\n");//结果为大于，因为strlen返回无符号数
 //}
 
+
+//变成常见的错误：
 
 //编译性错误
 //int main()
@@ -230,9 +242,11 @@
 //连接性错误
 //int main()
 //{
-//	int ret = Add(2, 3);
+//	int ret = Add(2, 3);//想调用Add 但是没用定义  “无法解析外部符号”
 //	printf("%d\n", ret);
 //	return 0;
 //}
 
 //运行时错误
+//最难搞  可以运行但是结果与预期不符 
+
