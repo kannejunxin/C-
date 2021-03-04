@@ -428,35 +428,88 @@
 
 
 //仿照快速排序，写一个冒泡排序可以排序任意类型的数据
-void _swap(char*buf1, char*buf2, int width)
-{
-	int i = 0;
-	for (i = 0; i < width; i++)
-	{
-		//一个一个字节交换，交换完width大小，就相当于将两个元素交换
-		char tmp = *buf1;
-		*buf1 = *buf2;
-		*buf2 = tmp;
-		buf1++;
-		buf2++;
-	}
-}
-void bubble_sort(void* base, size_t sz, size_t width, int(*cmp)(const void *e1, const void *e2))
-{
-	size_t i = 0;
-	for (i = 0; i < sz - 1; i++)
-	{
-		size_t j = 0;
-		//相邻两个元素比较
-		//base[j]   base[j+1]
-		for (j = 0; j < sz - 1 - i; j++)
-		{
-			//若不满足顺序则交换
-			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width) > 0)
-			{
-				_swap((char*)base + j * width, (char*)base + (j + 1) * width), width);
-			}
-		}
-	}
-}
 
+#include<string.h>
+//struct Stu
+//{
+//	char name[20];
+//	int age;
+//};
+//void _swap(char*buf1, char*buf2, int width)
+//{
+//	int i = 0;
+//	for (i = 0; i < width; i++)
+//	{
+//		/*一个一个字节交换，交换完width大小，就相当于将两个元素交换*/
+//		char tmp = *buf1;
+//		*buf1 = *buf2;
+//		*buf2 = tmp;
+//		buf1++;
+//		buf2++;
+//	}
+//}
+//void bubble_sort(void* base, size_t sz, size_t width, int(*cmp)(const void *e1, const void *e2))
+//{
+//	size_t i = 0;
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		size_t j = 0;
+//		/*相邻两个元素比较*/
+//		/*base[j]   base[j+1]*/
+//		for (j = 0; j < sz - 1 - i; j++)
+//		{
+//			/*若不满足顺序则交换*/
+//			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width) > 0)
+//			{
+//				_swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
+//			}
+//		}
+//	}
+//}
+//int cmp_string(const void *e1, const void *e2)
+//{
+//	strcmp( ((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
+//}
+//int main()
+//{
+//	struct Stu prr[] = { {"ZHANGSAN",15},{"LISI",20},{"WANGWU",30} };
+//	int sz = sizeof(prr) / sizeof(prr[0]),i;
+//	bubble_sort(prr, sz, sizeof(prr[0]), cmp_string);
+//	for (i = 0; i < 3; i++)
+//	{
+//		printf("%s %d", prr[i].name, prr[i].age);
+//		printf("\n");
+//	}
+//	return 0;
+//}
+//
+
+//字符串左旋
+void leftRound(char *p, int k)
+{
+	int i, j;
+	char tmp;
+	int len = strlen(p);
+	for (i = 0; i < k; i++)
+	{
+		tmp = p[0];
+		for (j = 0; j < len-1 ; j++)
+		{
+			p[j] = p[j + 1];
+		}
+		p[j] = tmp;
+	}
+}
+int main()
+{
+	char a[100];
+	int k;
+	char * p;
+	p = a;
+	printf("请输入字符串:>\n");
+	gets(a);
+	printf("请输入左旋K的个数:>\n");
+	scanf("%d", &k);
+	leftRound(p, k);
+	printf("%s", p);
+}
