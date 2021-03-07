@@ -38,13 +38,13 @@
 //	assert(src != NULL);
 //
 //
-//	while (*src != '\0')
+//	/*while (*src != '\0')
 //	{
 //		*dest = *src;
 //		dest++;
 //		src++;
 //	}
-//	*dest = *src;
+//	*dest = *src;*/
 //
 //	//优化
 //	assert(dest && src);
@@ -98,12 +98,9 @@
 //	char arr1[20] = "Hello ";
 //	char arr2[] = "World";
 //	//strcat(arr1, arr2);
-//
 //	my_strcat(arr1, arr2);
 //	printf("%s\n", arr1);
-//
 //	return 0;
-//
 //}
 
 //strcmp - 字符串比较
@@ -111,18 +108,18 @@
 #include<stdlib.h>
 //int my_strcmp(const char * s1, const char * s2 )
 //{
-//	assert(s1 && s2);
-//	while (*s1 == *s2)
-//	{
-//		if (*s1 == '\0')
-//			return 0;
-//		s1++;
-//		s2++;
-//	}
-//	if (*s1 > *s2)
-//		return 1;
-//	else
-//		return -1;
+//	//assert(s1 && s2);
+//	//while (*s1 == *s2)
+//	//{
+//	//	if (*s1 == '\0')
+//	//		return 0;
+//	//	s1++;
+//	//	s2++;
+//	//}
+//	//if (*s1 > *s2)
+//	//	return 1;
+//	//else
+//	//	return -1;
 //
 //	//优化
 //	assert(s1 && s2);
@@ -186,39 +183,39 @@
 
 //模拟实现strstr
 //字符串查找子串 还可以用KMP算法 
-//char * my_strstr(const char*s1, const char*s2)
-//{
-//	assert(s1 && s2);
-//	char * cp = s1;
-//	if (*s2 == '\0')
-//		return (char*)s1;
-//	while (*cp)
-//	{
-//		char*p1 = cp;
-//		char*p2 = s2;
-//		while ((*p1 !='\0')&&(*p2!='\0')&&(*p1 == *p2))
-//		{
-//			p1++;
-//			p2++;
-//		}
-//		if (*p2 == '\0')
-//			return cp;
-//		cp ++ ;
-//	}
-//	return NULL;
-//}
-//int main()
-//{
-//	char arr1[] = "abbbcdef";
-//	char arr2[] = "abc";
-//	char*ret = strstr(arr1, arr2);
-//	//char*ret = my_strstr(arr1, arr2);
-//	if (ret != NULL)
-//		printf("%s\n", ret);
-//	else
-//		printf("找不到子串");
-//	return 0;
-//}
+char * my_strstr(const char*s1, const char*s2)
+{
+	assert(s1 && s2);
+	char * cp = s1;
+	if (*s2 == '\0')
+		return (char*)s1;
+	while (*cp)
+	{
+		char*p1 = cp;
+		char*p2 = s2;
+		while ((*p1 !='\0')&&(*p2!='\0')&&(*p1 == *p2))
+		{
+			p1++;
+			p2++;
+		}
+		if (*p2 == '\0')
+			return cp;
+		cp ++ ;
+	}
+	return NULL;
+}
+int main()
+{
+	char arr1[] = "abbbcdef";
+	char arr2[] = "bbc";
+	/*char*ret = strstr(arr1, arr2);*/
+	char*ret = my_strstr(arr1, arr2);
+	if (ret != NULL)
+		printf("%s\n", ret);
+	else
+		printf("找不到子串");
+	return 0;
+}
 
 
  //strtok - 作用打印有分隔符的字符串的标记
@@ -279,19 +276,129 @@
 //toupper 转成大小
 
 
-int main()
-{
-	char arr[20] = { 0 };
-	gets(arr);
-	int i = 0;
-	while (arr[i])
-	{
-		if (i )
-		{
-			arr[i] = tolower(arr[i]);//大写转换小写
-		}
-		printf("%c", arr[i]);
-		i++;
-	}
+//int main()
+//{
+//	char arr[20] = { 0 };
+//	gets(arr);
+//	int i = 0;
+//	while (arr[i])
+//	{
+//		if (i )
+//		{
+//			arr[i] = tolower(arr[i]);//大写转换小写
+//		}
+//		printf("%c", arr[i]);
+//		i++;
+//	}
+//
+//}
 
-}
+
+//练习一
+//写一个函数，判断一个字符串是否为另外一个字符串旋转之后的字符串。
+//
+//
+//
+//例如：给定s1 = AABCD和s2 = BCDAA，返回1
+//
+//给定s1 = abcd和s2 = ACBD，返回0.
+//
+//
+//
+//AABCD左旋一个字符得到ABCDA
+//
+//AABCD左旋两个字符得到BCDAA
+//
+//AABCD右旋一个字符得到DAABC
+//int findRound(const char * src, char * find)
+//{
+//	char tmp[100] = { 0 };
+//	strcpy(tmp, src);
+//	strcat(tmp, src);
+//	if (strstr(tmp, find) != NULL)
+//		return 1;
+//	else
+//		return 0;
+//}
+//int main()
+//{
+//	char arr1[20] = { 0 };
+//	char arr2[20] = { 0 };
+//	gets(arr1);
+//	gets(arr2);
+//	int ret = findRound(arr1, arr2);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+//练习实现一个函数，可以左旋字符串中的k个字符。
+//void leftRound(char *p, int k)
+//{
+//	int i, j;
+//	char tmp;
+//	int len = strlen(p);
+//	for (i = 0; i < k; i++)
+//	{
+//		tmp = p[0];
+//		for (j = 0; j < len - 1; j++)
+//		{
+//			p[j] = p[j + 1];
+//		}
+//		p[j] = tmp;
+//	}
+//}
+//int main()
+//{
+//	char a[100];
+//	int k;
+//	char * p;
+//	p = a;
+//	printf("请输入字符串:>\n");
+//	gets(a);
+//	printf("请输入左旋K的个数:>\n");
+//	scanf("%d", &k);
+//	leftRound(p, k);
+//	printf("%s", p);
+//}
+
+
+//练习三
+//有一个数字矩阵，矩阵的每行从左到右是递增的，矩阵从上到下是递增的，请编写程序在这样的矩阵中查找某个数字是否存在。
+//
+//
+//
+//要求：时间复杂度小于O(N);
+//int find(int a[][4], int x, int y, int key)
+//{
+//	int i = 0, j = y - 1;
+//	if (key<a[0][0] || key>a[x - 1][y - 1])
+//		return 0;
+//	while (i < x && j >= 0)
+//	{
+//		if (a[i][j] < key)
+//		{
+//			i++;
+//		}
+//		else if (a[i][j] > key)
+//		{
+//			j++;
+//		}
+//		else
+//		{
+//			return 1;
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a[4][4] = { {1,5,7,9},{4,6,10,15},{8,11,12,19},{14,16,18,21} };
+//	if (find(a, 4, 4, 14))
+//	{
+//		printf("找到了");
+//	}
+//	else
+//	{
+//		printf("找不到了");
+//	}
+//}
